@@ -68,8 +68,29 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 To set up the Vercel deployment with GitHub Actions:
 
 1. Create a Vercel account and link your GitHub repository
-2. Generate a Vercel token from your account settings
-3. Add the token as a GitHub repository secret named `VERCEL_TOKEN`
+2. Generate a Vercel token from your account settings:
+
+   - Go to [Vercel Dashboard](https://vercel.com/dashboard)
+   - Click on your profile picture in the top right corner
+   - Select "Settings"
+   - Go to "Tokens" tab
+   - Create a new token with a descriptive name (e.g., "GitHub Actions")
+   - Copy the generated token
+
+3. Get your Vercel Organization ID and Project ID:
+
+   - Go to your project in the Vercel dashboard
+   - Click on "Settings"
+   - Scroll down to find your "Project ID"
+   - For Organization ID, go to the General Settings of your organization
+
+4. Add the following secrets to your GitHub repository:
+   - Go to your GitHub repository
+   - Click on "Settings" > "Secrets and variables" > "Actions"
+   - Add the following secrets:
+     - `VERCEL_TOKEN`: Your Vercel token
+     - `VERCEL_ORG_ID`: Your Vercel Organization ID
+     - `VERCEL_PROJECT_ID`: Your Vercel Project ID
 
 ## Environment Variables
 
