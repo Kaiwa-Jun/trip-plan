@@ -29,8 +29,82 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
+## CI/CD Setup
+
+This project uses GitHub Actions for continuous integration and deployment:
+
+- **CI Workflow**: Runs on pull requests and pushes to the main branch
+
+  - Lints code with ESLint
+  - Checks code formatting with Prettier
+  - Builds the application to ensure it compiles correctly
+
+- **CD Workflow**: Automatically deploys to Vercel when changes are pushed to the main branch
+
+### Code Formatting
+
+We use Prettier for code formatting. You can format your code by running:
+
+```bash
+npm run format
+```
+
+To check if your code is properly formatted without making changes:
+
+```bash
+npm run format:check
+```
+
 ## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The project is configured for automatic deployment to Vercel through GitHub Actions.
+
+For manual deployment, you can use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+### Vercel Deployment Setup
+
+To set up the Vercel deployment with GitHub Actions:
+
+1. Create a Vercel account and link your GitHub repository
+2. Generate a Vercel token from your account settings
+3. Add the token as a GitHub repository secret named `VERCEL_TOKEN`
+
+## Environment Variables
+
+This project uses environment variables for configuration. Follow these steps to set them up:
+
+### Local Development
+
+1. Copy the `.env.example` file to create a new `.env.local` file:
+
+   ```bash
+   cp .env.example .env.local
+   ```
+
+2. Edit the `.env.local` file with your specific configuration values.
+
+3. For different environments, you can create:
+   - `.env.development` - Used during `npm run dev`
+   - `.env.production` - Used during `npm run build` and `npm run start`
+   - `.env.test` - Used during testing
+
+### Vercel Environment Variables
+
+For deployment on Vercel, you need to configure environment variables in the Vercel dashboard:
+
+1. Go to your project in the Vercel dashboard
+2. Navigate to Settings > Environment Variables
+3. Add the required environment variables
+4. You can specify different values for Production, Preview, and Development environments
+
+### GitHub Actions Environment Variables
+
+For GitHub Actions workflows, add sensitive environment variables as repository secrets:
+
+1. Go to your GitHub repository
+2. Navigate to Settings > Secrets and variables > Actions
+3. Add the required secrets (e.g., `VERCEL_TOKEN`)
+
+These secrets can then be accessed in your workflows using the `${{ secrets.SECRET_NAME }}` syntax.
