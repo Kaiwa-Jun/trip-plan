@@ -1,27 +1,27 @@
-"use client";
+'use client';
 
-import Link from "next/link";
+import Link from 'next/link';
 
 export default function MyPlans() {
   // 仮のサンプルデータ
   const samplePlans = [
     {
       id: 1,
-      destination: "京都",
-      dates: "2025-05-01 ~ 2025-05-04",
-      createdAt: "2025-03-15",
+      destination: '京都',
+      dates: '2025-05-01 ~ 2025-05-04',
+      createdAt: '2025-03-15',
     },
     {
       id: 2,
-      destination: "北海道",
-      dates: "2025-07-20 ~ 2025-07-25",
-      createdAt: "2025-03-20",
+      destination: '北海道',
+      dates: '2025-07-20 ~ 2025-07-25',
+      createdAt: '2025-03-20',
     },
     {
       id: 3,
-      destination: "沖縄",
-      dates: "2025-08-10 ~ 2025-08-15",
-      createdAt: "2025-03-25",
+      destination: '沖縄',
+      dates: '2025-08-10 ~ 2025-08-15',
+      createdAt: '2025-03-25',
     },
   ];
 
@@ -47,18 +47,13 @@ export default function MyPlans() {
         </div>
       ) : (
         <div className="space-y-4">
-          {samplePlans.map((plan) => (
-            <div
-              key={plan.id}
-              className="border rounded-lg p-4 hover:shadow-md transition-shadow"
-            >
+          {samplePlans.map(plan => (
+            <div key={plan.id} className="border rounded-lg p-4 hover:shadow-md transition-shadow">
               <div className="flex justify-between items-center">
                 <div>
                   <h2 className="text-xl font-bold">{plan.destination}旅行</h2>
                   <p className="text-gray-600">期間: {plan.dates}</p>
-                  <p className="text-sm text-gray-500">
-                    作成日: {plan.createdAt}
-                  </p>
+                  <p className="text-sm text-gray-500">作成日: {plan.createdAt}</p>
                 </div>
                 <div className="flex space-x-2">
                   <Link
@@ -69,7 +64,7 @@ export default function MyPlans() {
                   </Link>
                   <button
                     className="bg-red-600 hover:bg-red-700 text-white py-1 px-3 rounded text-sm"
-                    onClick={() => alert("この機能は近日実装予定です")}
+                    onClick={() => alert('この機能は近日実装予定です')}
                   >
                     削除
                   </button>

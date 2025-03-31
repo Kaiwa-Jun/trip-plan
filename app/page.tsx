@@ -1,5 +1,5 @@
-import Link from "next/link";
-import Image from "next/image";
+import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Home() {
   return (
@@ -8,13 +8,7 @@ export default function Home() {
       <p className="text-xl mb-8 max-w-2xl">
         旅行先や目的を入力して、最適な旅行プランをAIが提案します。
       </p>
-      <Image
-        src="/globe.svg"
-        alt="旅行アイコン"
-        width={120}
-        height={120}
-        className="mb-8"
-      />
+      <Image src="/globe.svg" alt="旅行アイコン" width={120} height={120} className="mb-8" />
       <Link
         href="/create"
         className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg text-lg transition-colors"

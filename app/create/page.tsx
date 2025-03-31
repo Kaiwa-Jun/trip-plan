@@ -1,21 +1,19 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function CreatePlan() {
   const router = useRouter();
   const [formData, setFormData] = useState({
-    destination: "",
-    dates: "",
-    purpose: "",
+    destination: '',
+    dates: '',
+    purpose: '',
   });
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({
+    setFormData(prev => ({
       ...prev,
       [name]: value,
     }));
@@ -24,10 +22,10 @@ export default function CreatePlan() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // ここで後ほどAI連携処理を実装予定
-    console.log("送信されたデータ:", formData);
+    console.log('送信されたデータ:', formData);
 
     // 仮の実装として、プラン表示ページに遷移
-    router.push("/plan");
+    router.push('/plan');
   };
 
   return (
